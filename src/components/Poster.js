@@ -16,7 +16,7 @@ class Poster extends Component {
           <img src={url} alt={title} />
           <p>
             <strong>{title}</strong>
-            <span className="badge badge-success">
+            <span className="badge badge-success ml-2">
               {window.localStorage.getItem(id) ? 'Purchased' : '' }
             </span><br />
             Rp {price}

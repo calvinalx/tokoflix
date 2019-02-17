@@ -79,9 +79,9 @@ class Movie extends Component {
             </div>
             <div className="col-lg-4">
               <h2>{movie.title}</h2>
-              Rating: {movie.vote_average}<br />
-              Durasi: {movie.runtime} menit<br />
-              Casts: {casts.data.cast.map(cast => {
+              <strong>Rating:</strong> {movie.vote_average}<br />
+              <strong>Durasi:</strong> {movie.runtime} menit<br />
+              <strong>Casts:</strong> {casts.data.cast.map(cast => {
                 return (
                   <span key={cast.id}>{cast.name}. </span>
                 )
