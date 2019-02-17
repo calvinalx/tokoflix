@@ -8,7 +8,7 @@ class Header extends Component {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container">
             <Link to="/">
-              <span className="navbar-brand">Tokoflix</span> @calvinalx
+              <span className="navbar-brand">Tokoflix</span> Home
             </Link>
             <ul className="navbar-nav">
               <li className="nav-item">
