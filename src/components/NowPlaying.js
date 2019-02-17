@@ -15,6 +15,18 @@ class NowPlaying extends Component {
     this.TmdbApi = new TmdbApi('22e2f8fdb2d0ca58aa47ab6c7b2a6cb9')
   }
 
+  priceCheck(rating) {
+    if (rating <=3) {
+      return 3500
+    } else if ((rating >3) && (rating <=6)) {
+      return 8250
+    } else if ((rating >6) && (rating <=8)) {
+      return 16350
+    } else {
+      return 21250
+    }
+  }
+
   componentDidMount() {
     this.TmdbApi.fetchNowPlaying('id').then(data => this.setState({ data }))
   }
@@ -41,7 +53,8 @@ class NowPlaying extends Component {
                   <Poster 
                     id={movie.id}
                     title={movie.title}
-                    poster={movie.poster_path} />
+                    poster={movie.poster_path}
+                    price={this.priceCheck(movie.vote_average)} />
                 </div>
               )
             })}
