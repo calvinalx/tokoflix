@@ -5,6 +5,8 @@ import Movie from './components/Movie'
 
 class App extends Component {
   render() {
+    window.localStorage.setItem('balance', '100000');
+
     return (
       <BrowserRouter>
         <div>

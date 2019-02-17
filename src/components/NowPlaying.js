@@ -32,21 +32,20 @@ class NowPlaying extends Component {
     return(
       <div>
         <Header />
-        <p>Showing page {page.page}</p>
-        <div class="container">
-        <div class="row">
-        {data.results.map(movie => {
-          return (
-            <div class="col-sm">
-            <Poster 
-              id={movie.id} 
-              key={movie.id}
-              title={movie.title}
-              poster={movie.poster_path} />
-            </div>
-          )
-        })}
-        </div>
+        <p className="text-center">Showing page {page.page}</p>
+        <div className="container">
+          <div className="row">
+            {data.results.map(movie => {
+              return (
+                <div className="col-sm" key={movie.id}>
+                  <Poster 
+                    id={movie.id}
+                    title={movie.title}
+                    poster={movie.poster_path} />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     )

@@ -12,7 +12,7 @@ class Poster extends Component {
         pathname: `${id}-${slug}`,
         state: {id}
       }}>
-        <div class="text-center">
+        <div className="text-center">
           <img src={url} alt={title} />
           <p>{title}</p>
         </div>
