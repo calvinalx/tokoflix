@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import queryString from 'query-string'
 import TmdbApi from '../libs/TmdbApi'
+import priceCheck from '../libs/priceCheck'
 import Poster from './Poster'
 import Header from './Header'
 
@@ -15,18 +16,6 @@ class NowPlaying extends Component {
     this.TmdbApi = new TmdbApi('22e2f8fdb2d0ca58aa47ab6c7b2a6cb9')
   }
 
-  priceCheck(rating) {
-    if (rating <=3) {
-      return 3500
-    } else if ((rating >3) && (rating <=6)) {
-      return 8250
-    } else if ((rating >6) && (rating <=8)) {
-      return 16350
-    } else {
-      return 21250
-    }
-  }
-
   componentDidMount() {
     this.TmdbApi.fetchNowPlaying('id').then(data => this.setState({ data }))
   }
@@ -37,7 +26,10 @@ class NowPlaying extends Component {
     
     if (!data) {
       return(
-        <p>Loading...</p>
+        <div>
+          <Header />
+          <p className="text-center">Loading...</p>
+        </div>
       )
     }
 
@@ -54,7 +46,7 @@ class NowPlaying extends Component {
                     id={movie.id}
                     title={movie.title}
                     poster={movie.poster_path}
-                    price={this.priceCheck(movie.vote_average)} />
+                    price={priceCheck(movie.vote_average)} />
                 </div>
               )
             })}

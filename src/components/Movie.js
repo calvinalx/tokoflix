@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import TmdbApi from '../libs/TmdbApi'
+import priceCheck from '../libs/priceCheck'
+import Header from './Header'
+import Poster from './Poster'
 
 class Movie extends Component {
   constructor(props) {
@@ -30,8 +33,23 @@ class Movie extends Component {
 
     return (
       <div>
+        <Header />
         {console.log(this.state.data)}
-        <p>Movie ID is {this.state.id}</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-4">
+              <Poster 
+                id={data.id}
+                title={data.title}
+                poster={data.poster_path}
+                price={priceCheck(data.vote_average)} />
+            </div>
+            <div className="col-lg-4">
+              Rating: {data.vote_average}<br />
+              Durasi: {data.runtime} menit<br />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
