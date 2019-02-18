@@ -5,6 +5,7 @@ import Movie from './components/Movie'
 
 class App extends Component {
   render() {
+    window.localStorage.clear();
     window.localStorage.setItem('balance', '100000');
 
     return (
