@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import formatMoney from '../libs/formatMoney'
 
 class Poster extends Component {
   render() {
@@ -19,7 +20,7 @@ class Poster extends Component {
             <span className="badge badge-success ml-2">
               {window.localStorage.getItem(id) ? 'Purchased' : '' }
             </span><br />
-            Rp {price}
+            {formatMoney(price)}
           </p>
         </div>
       </Link>

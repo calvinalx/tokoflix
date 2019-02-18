@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TmdbApi from '../libs/TmdbApi'
 import priceCheck from '../libs/priceCheck'
+import formatMoney from '../libs/formatMoney'
 import Header from './Header'
 import Poster from './Poster'
 
@@ -60,6 +61,7 @@ class Movie extends Component {
       return(
         <div>
           <Header />
+          <br /><br />
           <p className="text-center">Loading...</p>
         </div>
       )
@@ -77,16 +79,17 @@ class Movie extends Component {
                 poster={movie.poster_path}
                 price={priceCheck(movie.vote_average)} />
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 mb-4">
               <h2>{movie.title}</h2>
               <strong>Rating:</strong> {movie.vote_average}<br />
+              <strong>Release Date:</strong> {movie.release_date}<br />
               <strong>Durasi:</strong> {movie.runtime} menit<br />
               <strong>Casts:</strong> {casts.data.cast.map(cast => {
                 return (
                   <span key={cast.id}>{cast.name}. </span>
                 )
               })}<br /><br />
-              <h3>Rp {priceCheck(movie.vote_average)}</h3>
+              <h3>{formatMoney(priceCheck(movie.vote_average))}</h3>
               {(window.localStorage.getItem(this.state.id)) ?
                 <button className="btn btn-secondary" disabled>
                   Sudah dibeli

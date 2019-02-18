@@ -53,6 +53,7 @@ class NowPlaying extends Component {
       return(
         <div>
           <Header />
+          <br /><br />
           <p className="text-center">Loading...</p>
         </div>
       )
