@@ -2,7 +2,7 @@
 
 You can also access this project at the following link:
 
-https://tokoflix.calvin.website/
+https://tokoflix.netlify.com/
 
 ## Running Locally
 
